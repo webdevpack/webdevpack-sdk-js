@@ -1,0 +1,16 @@
+{
+    "name": "@webdevpack/webdevpack-sdk-js",
+    "version": "1.0.0",
+    "description": "WEBDEVPACK SDK for JavaScript (Node.js)",
+    "license": "MIT",
+    "homepage": "https://webdevpack.com/",
+    "type": "module",
+    "main": "./src/index.js",
+    "exports": {
+        ".": "./src/index.js"
+    },
+    "author": "WEBDEVPACK",
+    "bugs": {
+        "email": "support@webdevpack.com"
+    }
+}
