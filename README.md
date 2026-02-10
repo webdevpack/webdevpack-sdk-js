@@ -39,13 +39,13 @@ await wdp.generateBarcode(text, targetFilename, 500, 300, "webp");
 // CODE
 
 // Minify JavaScript code
-const jsResult = await wdp.minifyJavaScript(source);
+const result = await wdp.minifyJavaScript(source);
 
 // Minify JavaScript file
 await wdp.minifyJavaScriptFile(sourceFilename, targetFilename);
 
 // Minify CSS code
-const cssResult = await wdp.minifyCSS(source);
+const result = await wdp.minifyCSS(source);
 
 // Minify CSS file
 await wdp.minifyCSSFile(sourceFilename, targetFilename);
@@ -58,7 +58,7 @@ const result = await wdp.domainWhois(domain);
 // SECURITY
 
 // Generate password
-const password = await wdp.generatePassword(length, true, true, true);
+const result = await wdp.generatePassword(length, true, true, true);
 
 // Generate key pair
 const { privateKey, publicKey } = await wdp.generateKeyPair(bits);
