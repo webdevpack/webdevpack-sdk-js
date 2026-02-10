@@ -77,4 +77,4 @@ await wdp.convertHTMLFileToPDF(sourceFilename, targetFilename);
 - ES modules enabled ("type": "module")
 
 ## License
-This project is licensed under the MIT License. See the [license file](https://github.com/webdevpack/webdevpack-sdk-php/blob/master/LICENSE) for more information.
+This project is licensed under the MIT License. See the [license file](https://github.com/webdevpack/webdevpack-sdk-js/blob/master/LICENSE) for more information.
