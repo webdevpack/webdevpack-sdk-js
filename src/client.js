@@ -259,4 +259,16 @@ export class Client {
         const r = await this.#sendRequest("/v0/html-file-to-pdf", { file: fileID });
         await this.#downloadFile(r.result.file, target);
     }
+
+    async takeWebsiteScreenshot(url, width, height, scale, format, target) {
+        this.#checkTargetFilename(target);
+        const r = await this.#sendRequest('/v0/website-screenshot', {
+            url,
+            width,
+            height,
+            scale,
+            format
+        });
+        await this.#downloadFile(r.result.file, target);
+    }
 }

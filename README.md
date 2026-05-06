@@ -55,6 +55,9 @@ await wdp.minifyCSSFile(sourceFilename, targetFilename);
 // Get domain WHOIS information
 const result = await wdp.domainWhois(domain);
 
+// Take website screenshot
+await wdp.takeWebsiteScreenshot('https://google.com/', 1024, 768, 1, 'jpg', targetFilename);
+
 // SECURITY
 
 // Generate password
