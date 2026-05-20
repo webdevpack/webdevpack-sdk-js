@@ -116,36 +116,8 @@ export class Client {
         }
     }
 
-    async transformText(text, transform) {
-        const r = await this.#sendRequest("/v0/text-transform", { text, transform });
-        return r.result.text;
-    }
-
-    async #base64(text, transform) {
-        const r = await this.#sendRequest("/v0/base64-encode-decode", { text, transform });
-        return r.result.text;
-    }
-
-    base64Encode(text) {
-        return this.#base64(text, "encode");
-    }
-
-    base64Decode(text) {
-        return this.#base64(text, "decode");
-    }
-
     async hashText(text, algorithm) {
         const r = await this.#sendRequest("/v0/text-hash", { text, algorithm });
-        return r.result.text;
-    }
-
-    async encodeURL(url) {
-        const r = await this.#sendRequest("/v0/url-encode-decode", { text: url, transform: "encode" });
-        return r.result.text;
-    }
-
-    async decodeURL(url) {
-        const r = await this.#sendRequest("/v0/url-encode-decode", { text: url, transform: "decode" });
         return r.result.text;
     }
 
@@ -213,19 +185,6 @@ export class Client {
         const fileID = await this.#uploadFile(source);
         const r = await this.#sendRequest("/v0/css-minify-file", { file: fileID });
         await this.#downloadFile(r.result.file, target);
-    }
-
-    async #json(text, transform) {
-        const r = await this.#sendRequest("/v0/json-encode-decode", { text, transform });
-        return r.result.text;
-    }
-
-    encodeJSON(text) {
-        return this.#json(text, "encode");
-    }
-
-    decodeJSON(text) {
-        return this.#json(text, "decode");
     }
 
     async generatePassword(length, includeUpperCase, includeSymbols, includeNumbers) {
