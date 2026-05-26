@@ -230,4 +230,12 @@ export class Client {
         });
         await this.#downloadFile(r.result.file, target);
     }
+
+     async convertSpreadsheet(source, target, format) {
+        this.#checkSourceFilename(source);
+        this.#checkTargetFilename(target);
+        const fileID = await this.#uploadFile(source);
+        const r = await this.#sendRequest("/v0/spreadsheet-convert", { file: fileID, format});
+        await this.#downloadFile(r.result.file, target);
+    }
 }

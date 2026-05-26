@@ -73,6 +73,9 @@ await wdp.convertHTMLToPDF(source, targetFilename);
 
 // Convert HTML file to PDF
 await wdp.convertHTMLFileToPDF(sourceFilename, targetFilename);
+
+// Convert spreadsheets
+await wdp.convertSpreadsheet(sourceFilename, targetFilename, 'xls');
 ```
 
 ## Requirements
