@@ -55,6 +55,12 @@ await wdp.minifyCSSFile(sourceFilename, targetFilename);
 // Get domain WHOIS information
 const result = await wdp.domainWhois(domain);
 
+// Get domain name servers
+const nameServers = await wdp.getDomainNameServers(domain);
+
+// Get domain DNS records
+const dnsRecords = await wdp.getDomainDNSRecords(domain);
+
 // Take website screenshot
 await wdp.takeWebsiteScreenshot('https://google.com/', 1024, 768, 1, 'jpg', targetFilename);
 
@@ -66,6 +72,9 @@ const result = await wdp.generatePassword(length, true, true, true);
 // Generate key pair
 const { privateKey, publicKey } = await wdp.generateKeyPair(bits);
 
+// Generate self-signed certificate
+const { certificate, privateKey } = await wdp.generateSelfSignedCertificate(domain, days, bits);
+
 // DOCUMENTS
 
 // Convert HTML to PDF
@@ -76,6 +85,14 @@ await wdp.convertHTMLFileToPDF(sourceFilename, targetFilename);
 
 // Convert spreadsheets
 await wdp.convertSpreadsheet(sourceFilename, targetFilename, 'xls');
+
+// DATA
+
+// Get my IP address
+const ip = await wdp.getMyIP();
+
+// Validate EU VAT Number
+const result = await wdp.validateEUVATNumber(number);
 ```
 
 ## Requirements

@@ -231,11 +231,40 @@ export class Client {
         await this.#downloadFile(r.result.file, target);
     }
 
-     async convertSpreadsheet(source, target, format) {
+    async convertSpreadsheet(source, target, format) {
         this.#checkSourceFilename(source);
         this.#checkTargetFilename(target);
         const fileID = await this.#uploadFile(source);
-        const r = await this.#sendRequest("/v0/spreadsheet-convert", { file: fileID, format});
+        const r = await this.#sendRequest("/v0/spreadsheet-convert", { file: fileID, format });
         await this.#downloadFile(r.result.file, target);
+    }
+
+    async getDomainNameServers(domain) {
+        const response = await this.#sendRequest('/v0/domain-nameservers', { domain });
+        return response.result.nameservers;
+    }
+
+    async getDomainDNSRecords(domain) {
+        const response = await this.#sendRequest('/v0/domain-dns-records', { domain });
+        return response.result.records;
+    }
+
+    async getMyIP() {
+        const response = await this.#sendRequest('/v0/my-ip', {});
+        return response.result.ip;
+    }
+
+    async validateEUVATNumber(number) {
+        const response = await this.#sendRequest('/v0/eu-vat-number-validate', { number });
+        return response.result;
+    }
+
+    async generateSelfSignedCertificate(domain, days = 365, bits = 2048) {
+        const response = await this.#sendRequest('/v0/self-signed-certificate', {
+            domain,
+            days,
+            bits
+        });
+        return response.result;
     }
 }
