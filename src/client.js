@@ -162,7 +162,7 @@ export class Client {
     }
 
     async minifyJavaScript(code) {
-        const r = await this.#sendRequest("/v0/js-minify-text", { text: code });
+        const r = await this.#sendRequest("/v0/js-minify-code", { code: code });
         return r.result.text;
     }
 
@@ -175,7 +175,7 @@ export class Client {
     }
 
     async minifyCSS(code) {
-        const r = await this.#sendRequest("/v0/css-minify-text", { text: code });
+        const r = await this.#sendRequest("/v0/css-minify-code", { code: code });
         return r.result.text;
     }
 
@@ -207,7 +207,7 @@ export class Client {
 
     async convertHTMLToPDF(code, target) {
         this.#checkTargetFilename(target);
-        const r = await this.#sendRequest("/v0/html-to-pdf", { text: code });
+        const r = await this.#sendRequest("/v0/html-to-pdf", { code: code });
         await this.#downloadFile(r.result.file, target);
     }
 
@@ -221,7 +221,7 @@ export class Client {
 
     async convertHTMLToImage(code, width, height, format, target) {
         this.#checkTargetFilename(target);
-        const r = await this.#sendRequest('/v0/html-to-image', { text: code, width, height, format });
+        const r = await this.#sendRequest('/v0/html-to-image', { code: code, width, height, format });
         await this.#downloadFile(r.result.file, target);
     }
 
