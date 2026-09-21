@@ -163,7 +163,7 @@ export class Client {
 
     async minifyJavaScript(code) {
         const r = await this.#sendRequest("/v0/js-minify-code", { code: code });
-        return r.result.text;
+        return r.result.code;
     }
 
     async minifyJavaScriptFile(source, target) {
@@ -176,7 +176,7 @@ export class Client {
 
     async minifyCSS(code) {
         const r = await this.#sendRequest("/v0/css-minify-code", { code: code });
-        return r.result.text;
+        return r.result.code;
     }
 
     async minifyCSSFile(source, target) {

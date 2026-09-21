@@ -1,6 +1,6 @@
 {
     "name": "@webdevpack/webdevpack-sdk-js",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "description": "WEBDEVPACK SDK for JavaScript (Node.js)",
     "license": "MIT",
     "homepage": "https://webdevpack.com/",
